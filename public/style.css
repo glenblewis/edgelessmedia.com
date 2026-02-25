@@ -1,0 +1,74 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --text: #1a1a2e;
+  --text-muted: #555;
+  --bg: #fafafa;
+  --surface: #fff;
+  --accent: #2d5a8e;
+  --border: #e0e0e0;
+  --radius: 8px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.container { max-width: 960px; margin: 0 auto; padding: 0 1.5rem; }
+
+header {
+  padding: 3rem 0 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.logo { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+.tagline { color: var(--text-muted); font-size: 1.15rem; margin-top: 0.25rem; }
+
+main section { padding: 3rem 0; }
+main section + section { border-top: 1px solid var(--border); }
+
+h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+
+.hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; }
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.app-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.app-card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+.app-card p { font-size: 0.9rem; color: var(--text-muted); }
+
+.about p, .contact p { color: var(--text-muted); max-width: 600px; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+footer nav { margin-bottom: 0.75rem; }
+footer nav a { margin: 0 1rem; }
+
+@media (max-width: 600px) {
+  header { padding: 2rem 0 1.5rem; }
+  .logo { font-size: 1.5rem; }
+  main section { padding: 2rem 0; }
+}
