@@ -1,3 +1,47 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Edgeless Media builds thoughtful mobile apps that help you build better habits, learn new skills, and enjoy everyday moments.' } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title}</title>
+  <meta name="description" content={description}>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="/" class="logo">Edgeless Media</a>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer>
+    <div class="container">
+      <nav>
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/terms">Terms of Service</a>
+        <a href="/support">Support</a>
+      </nav>
+      <p>&copy; {new Date().getFullYear()} Edgeless Media. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
+
+<style is:global>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -25,13 +69,26 @@ header {
   border-bottom: 1px solid var(--border);
 }
 
-.logo { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+.logo {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: inherit;
+}
+
 .tagline { color: var(--text-muted); font-size: 1.15rem; margin-top: 0.25rem; }
 
 main section { padding: 3rem 0; }
 main section + section { border-top: 1px solid var(--border); }
 
 h2 { font-size: 1.4rem; margin-bottom: 1rem; }
+h3 { margin-top: 1.5rem; margin-bottom: 0.5rem; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+ul { margin: 0.5rem 0 0 1.5rem; }
 
 .hero p { font-size: 1.1rem; color: var(--text-muted); max-width: 600px; }
 
@@ -48,13 +105,12 @@ h2 { font-size: 1.4rem; margin-bottom: 1rem; }
   padding: 1.25rem;
 }
 
-.app-card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; }
+.app-card h3 { font-size: 1.05rem; margin-bottom: 0.35rem; margin-top: 0; }
 .app-card p { font-size: 0.9rem; color: var(--text-muted); }
 
 .about p, .contact p { color: var(--text-muted); max-width: 600px; }
 
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+.legal p, .legal li { color: var(--text-muted); max-width: 700px; }
 
 footer {
   border-top: 1px solid var(--border);
@@ -72,3 +128,4 @@ footer nav a { margin: 0 1rem; }
   .logo { font-size: 1.5rem; }
   main section { padding: 2rem 0; }
 }
+</style>

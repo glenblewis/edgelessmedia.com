@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+
+const apps = [
+  { name: 'Anti-Bias Trainer', description: 'Build awareness of cognitive biases through daily exercises and reflective journaling.' },
+  { name: 'Better Sleep', description: 'Track sleep patterns, build healthy bedtime routines, and wake up feeling refreshed.' },
+  { name: 'Bucket List', description: 'Dream big, plan adventures, and track life goals you actually complete.' },
+  { name: 'Cognitive Stories', description: 'Strengthen critical thinking through interactive story-based scenarios.' },
+  { name: 'Lighthouses', description: 'Discover and explore lighthouses near you with maps, history, and photos.' },
+  { name: "Musician's Process", description: 'Organize your practice sessions, track progress, and build musical skills systematically.' },
+  { name: 'Random Reminders', description: 'Get gentle nudges throughout the day for habits, affirmations, or micro-learning.' },
+  { name: 'Scrabble Trainer', description: 'Expand your word game vocabulary with smart drilling and spaced repetition.' },
+  { name: 'Unsolicited Advice', description: 'Curated life wisdom delivered daily — practical tips from real experience.' },
+  { name: 'Vocabulary', description: 'Build a stronger vocabulary through contextual learning and daily practice.' },
+];
+---
+
+<Base title="Edgeless Media — Thoughtful apps for everyday life">
+  <section class="hero container">
+    <p class="tagline">Thoughtful apps for everyday life</p>
+    <p>We build mobile apps that help you build better habits, learn new skills, and enjoy everyday moments. Simple, private, and designed with care.</p>
+  </section>
+
+  <section class="apps container">
+    <h2>Our Apps</h2>
+    <div class="app-grid">
+      {apps.map(app => (
+        <div class="app-card">
+          <h3>{app.name}</h3>
+          <p>{app.description}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="about container">
+    <h2>About</h2>
+    <p>Edgeless Media is an independent app studio focused on building high-quality mobile experiences. Every app we make respects your privacy, works offline, and is designed to be genuinely useful.</p>
+  </section>
+
+  <section class="contact container">
+    <h2>Contact</h2>
+    <p>Questions, feedback, or support requests: <a href="mailto:support@edgelessmedia.com">support@edgelessmedia.com</a></p>
+  </section>
+</Base>
